@@ -3,7 +3,12 @@ const {
   getAllBooks,
   getBooksById,
   editBookById,
-  deleteBookById
+  deleteBookById,
+  getAllReadingBooks,
+  getAllUnreadingBooks,
+  getAllFinishedBooks,
+  getAllUnfinishedBooks,
+  getAllBooksContainsDicoding
 } = require("./handler");
 
 const routes = [
@@ -31,6 +36,31 @@ const routes = [
     method: "DELETE",
     path: "/books/{bookId}",
     handler: deleteBookById
+  },
+  {
+    method: "GET",
+    path: "/books",
+    handler: getAllReadingBooks
+  },
+  {
+    method: "GET",
+    path: "/books",
+    handler: getAllUnreadingBooks
+  },
+  {
+    method: "GET",
+    path: "/books/finished",
+    handler: getAllFinishedBooks
+  },
+  {
+    method: "GET",
+    path: "/books/unfinished",
+    handler: getAllUnfinishedBooks
+  },
+  {
+    method: "GET",
+    path: "/books/contains",
+    handler: getAllBooksContainsDicoding
   }
 ];
 
